@@ -1,0 +1,480 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+:root {
+    --bink: #EB008B;
+    --back: #2D2D2D;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    margin: 10px 100px;
+}
+header #userInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* margin: 10px 100px; */
+}
+header #headerIcons{
+    display: flex;
+    gap: 0 10px;
+}
+header hr{
+    width: 100%;
+}
+header #main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* margin: 10px 100px; */
+}
+header img{
+    width: 8%;
+}
+header #main #links{
+    display: flex;
+    gap: 0 20px;
+    align-items: center;
+}
+header #main button{
+    border: none;
+    background-color: #133A5E;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 30px;
+}
+#mainPhoto{
+    display: flex;
+    width: 100%;
+    height: 60vh;
+    background-image: url("assets/imgs/main community.jpg");
+    background-position: center;
+    background-size: cover;
+    margin: 20px 0 40px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+}
+#mainPhoto h1{
+    font-size: 20px;
+}
+
+#questions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    margin: 0 auto;
+}
+
+#questions .sections{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+#questions .sections .sec{
+    font-size: 25px;
+    font-weight: 500;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    
+}
+#questions .sections .sec hr{
+    border: none;
+    height: 1px;
+    background-color: #2D2D2D;
+    margin: 15px 0;
+}
+#questions .sections .sec:first-child hr{
+    border: none;
+    height: 3px;
+    margin-top: 14xpx;
+    background-color: #FF9934;
+}
+
+#questions #blogs{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+    margin: auto;
+    padding: 40px 0;
+}
+#questions #blogs #blog{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+#questions #blogs #blog h2{
+    color: #133A5E;
+    font-size: 23px;
+    font-weight: 500;
+    margin: 10px 0;
+}
+#questions #blogs #blog span{
+    color: #737373;
+    margin: 10px 0;
+    font-size: 15px;
+}
+#questions #blogs #addBlog{
+    position: absolute;
+    right: -200px;
+    bottom: 20px;
+    color: white;
+    font-size: 15px;
+    background-color: #FF9934;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: opacity 0.3s ease-in-out;
+}
+
+#questions #blogs #blog img{
+    border-radius: 10px;
+    height: 400px;
+    object-fit:cover;
+    margin: 10px 0;
+}
+#questions #blogs #blog p{
+    color: #737373;
+    line-height: 2;
+    margin: 10px 0;
+}
+#questions #blogs #blog .sub{
+    display: flex;
+    flex-direction: row;
+    font-size: 23px;
+
+    color: #737373;
+    gap: 15px;
+}
+#questions #blogs #blog .sub .comment{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+}
+#questions #blogs #blog input{
+    color: #BEBEBE;
+    border: 1px solid #D9D9D9;
+    padding: 10px 20px;
+    border-radius: 9px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);;
+    margin: 10px 0;
+}
+#questions #blogs #blog .send{
+    color: #FF9934;
+    position: absolute;
+    right: 15px;
+    bottom: 20px;
+}
+#questions #blogs #botBlogs{
+    margin-top: 20px;
+    color: black;
+    font-size: 22px;
+    font-weight: 500;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+    #pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      padding: 20px;
+      border-bottom: 3px solid #2196F3; /* blue line */
+    }
+
+    .page-btn {
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .page-btn.active {
+      font-weight: bold;
+      color: black;
+    }
+
+    .page-btn:not(.active) {
+      color: orange;
+    }
+
+    .arrow {
+      border: 2px solid orange;
+      border-radius: 50%;
+      padding: 6px 10px;
+      font-size: 16px;
+      color: orange;
+      background: none;
+      cursor: pointer;
+    }
+
+    .arrow:disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+
+#goTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99;
+  background-color: #FF9934;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: none; /* Hidden by default */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: opacity 0.3s ease-in-out;
+}
+
+#goTop:hover {
+  background-color: #e1822a;
+}
+
+
+/* Start footer */
+footer {
+  background: #F3F3F3;
+  padding: 20px 100px;
+}
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0;
+}
+footer .container .big-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 30%;
+}
+footer .container .big-row .logo-footer {
+  width: 80px ;
+}
+footer .container .big-row p {
+  width: 90%;
+  color: #b1b1b1;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 15px 0;
+}
+footer .container .row {
+  width: 22%;
+}
+footer .container .big-row .icons-footer {
+  margin: 0;
+}
+footer .container .big-row .icons-footer a {
+  display: block;
+  margin: 20px 0;
+  position: relative;
+  top: 0;
+  transition: 0.3s;
+}
+footer .container .big-row .icons-footer a span {
+  font-size: 14px;
+  color: #000000;
+  margin-left: 10px;
+}
+footer .container .big-row .icons-footer a:hover {
+  top: -5px;
+}
+footer .container .big-row .icons-footer a  i {
+  color:black ;
+  font-size: 14px;
+}
+footer .container .row h4 {
+  color: #000000;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+footer .container .row .links {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+footer .container .row .links  a {
+  margin-bottom: 5px;
+  color: #5F6D7E;
+  font-size: 14px;
+  position: relative;
+  left: 0;
+  transition: 0.3s;
+}
+footer .container .row .links  a:hover {
+  left: 8px;
+  color: var(--main-color);
+}
+footer .container .row .links  a i {
+  color: var(--main-color);
+  font-size: 14px;
+  margin-right: 5px;
+}
+footer hr {
+  width: 93%;
+  margin: auto;
+}
+footer .bottom-footer {
+ padding: 20px 0;
+}
+footer .bottom-footer .container {
+  align-items: center;
+  padding: 5px 0;
+}
+footer .bottom-footer p{
+  color:#5F6D7E;
+  font-size: 12px;
+}
+footer .bottom-footer .soctial-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+footer .bottom-footer .soctial-icon a  {
+  color: #000000;
+}
+
+/* #goTop{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background-color: #EB008B;
+    
+} */
+
+
+/* ask question */
+
+#body{
+    position: relative;
+    background-color: #2D2D2D;
+    background-image: url("assets/imgs/ask\ question.jpg");
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#body::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(105, 105, 105, 0.449); /* black with 50% opacity */
+  z-index: 1;
+}
+
+#body #card{
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 20%;
+    padding: 50px 30px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+}
+#body #card h2{
+    color: #133A5E;
+    font-size: 22px;
+}
+#body #card input{
+    width: 80%;
+    border-radius: 15px;
+    border: 1px solid gray;
+    padding: 10px 20px;
+    
+}
+#body #card textarea{
+    width: 80%;
+    border-radius: 15px;
+    border: 1px solid gray;
+    padding: 10px 20px;
+    resize: none;
+}
+
+#body #card #file{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    width: 90%;
+    margin: 10px 0;
+}
+#body #card .file-label {
+    padding: 10px 20px;
+    background-color: white;
+    color: #333;
+    border-radius: 10px 0 0 10px;
+    cursor: pointer;
+    width: 50%;
+
+}
+
+#body #card .file-name {
+    padding: 10px 20px;
+    background-color: #f3f3f3;
+    border-radius: 0 10px 10px 0;
+    width: 60%;
+}
+#body #card #buttons button{
+    border: none;
+    width: 100px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    color: #133A5E;
+}
+#body #card #buttons .post{
+    background-color: #133A5E;
+    color: white;
+}
