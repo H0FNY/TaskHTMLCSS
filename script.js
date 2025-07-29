@@ -1,4 +1,4 @@
-
+var currentPage=1;
 
 
 var input = document.getElementById('fileUpload');
@@ -14,7 +14,7 @@ input.addEventListener("change", function () {
         };
         reader.readAsDataURL(file);
     } else {
-        fileBase64 = ""; // clear if not an image
+        fileBase64 = "";
     }
 });
 
@@ -36,14 +36,20 @@ function post(){
     if(localStorage.getItem("posts")==null)
         localStorage.setItem("posts", JSON.stringify([pos]));
     else{
-        var arr=[]
-        arr=JSON.parse(localStorage.getItem("posts"));
+        var arr=JSON.parse(localStorage.getItem("posts"));
 
         arr.push(pos);
         localStorage.setItem("posts", JSON.stringify(arr));
     }
     clearInputs();
 }
+function clearInputs() {
+    document.getElementById("askQuestion").value = "";
+    document.getElementById("addDescription").value = "";
+    input.value = "";
+    fileBase64 = "";
+}
+
 
 function onlooad(){
     window.onscroll = function () {
@@ -55,16 +61,18 @@ function onlooad(){
         btn.style.display = "none";
     }
 };
-
-
-    var arr=JSON.parse(localStorage.getItem("posts"));
-    if(arr.length!=0)drawBlog(arr,arr.length)
+    drawBlog();
 }
 
-function drawBlog(arr,numPosts){
-    for(var i=0;i<arr.length;i++){
-        
+function drawBlog(){
+    var arr=JSON.parse(localStorage.getItem("posts"));
+    console.log(arr);
+    var numPosts= arr.length;
+    var start = (currentPage-1)*3;
+    var end = start + 3;
     var blogs=document.getElementById("blogs");
+    blogs.innerHTML="";
+    for(var i=start;i<Math.min(end,arr.length);i++){
     var blog=document.createElement("div")
     blog.setAttribute("id","blog");
     var h2=document.createElement("h2")
@@ -100,8 +108,6 @@ function drawBlog(arr,numPosts){
     sendIcon.setAttribute("class","fa-regular fa-paper-plane");
     send.appendChild(sendIcon);
     blog.appendChild(send);
-
-    
     blogs.appendChild(blog);
     }
     var botBlogs=document.createElement("div")
@@ -114,59 +120,42 @@ function drawBlog(arr,numPosts){
     }
     blogs.appendChild(add);
     blogs.appendChild(botBlogs)
+
+    renderPagination(numPosts);
 }
 
-
-
-function clearInputs() {
-    document.getElementById("askQuestion").value = "";
-    document.getElementById("addDescription").value = "";
-    input.value = "";
-    fileBase64 = "";
-}
-
-
-document.getElementById("goTop").addEventListener("click", function () {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-
-const pagination = document.getElementById('pagination');
-
-function renderPagination() {
-    var totalPages=JSON.parse(localStorage.getItem("posts")).length;
+function renderPagination(numposts) {
+    var totalPages = Math.ceil(numposts/3);
+    
+    var pagination = document.getElementById('pagination');
       pagination.innerHTML = '';
 
-      // ← Previous arrow
-      const prev = document.createElement('button');
+      var prev = document.createElement('button');
       prev.innerHTML = '←';
       prev.className = 'arrow';
       prev.disabled = currentPage === 1;
       prev.onclick = () => {
         if (currentPage > 1) {
           currentPage--;
-          renderPagination();
+          drawBlog();
         }
       };
       pagination.appendChild(prev);
 
-      // Page numbers
+      
       for (let i = 1; i <= totalPages; i++) {
-        const btn = document.createElement('button');
+        var btn = document.createElement('button');
         btn.textContent = i;
         btn.className = 'page-btn';
         if (i === currentPage) btn.classList.add('active');
         btn.onclick = () => {
           currentPage = i;
-          renderPagination();
+          drawBlog();
         };
         pagination.appendChild(btn);
       }
 
-      // → Next arrow
+      
       const next = document.createElement('button');
       next.innerHTML = '→';
       next.className = 'arrow';
@@ -174,10 +163,15 @@ function renderPagination() {
       next.onclick = () => {
         if (currentPage < totalPages) {
           currentPage++;
-          renderPagination();
+          drawBlog();
         }
       };
       pagination.appendChild(next);
     }
-
-    renderPagination();
+    
+document.getElementById("goTop").addEventListener("click", function () {
+window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+});
+});
